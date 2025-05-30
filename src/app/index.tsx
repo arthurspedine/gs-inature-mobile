@@ -1,21 +1,19 @@
 import { Redirect } from "expo-router";
-import { useAuth } from "../context/AuthContext";
-import { ActivityIndicator, View } from "react-native";
+import { useEffect, useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Index() {
-	const { token, isLoading } = useAuth();
+	const [token, setToken] = useState<string | null | undefined>(undefined);
 
-	if (isLoading) {
-		return (
-			<View className="flex-1 justify-center items-center bg-white">
-				<ActivityIndicator size="large" color="#22c55e" />
-			</View>
-		);
-	}
+	useEffect(() => {
+		AsyncStorage.getItem("jwt_token").then(setToken);
+	}, []);
 
-	// Redirect based on authentication status
-	if (token) {
-		return <Redirect href="/(tabs)/home" />;
-	}
-	return <Redirect href="/(auth)/login" />;
+	if (token === undefined) return null; // loading
+
+	return token ? (
+		<Redirect href="/(tabs)/home" />
+	) : (
+		<Redirect href="/(auth)/login" />
+	);
 }

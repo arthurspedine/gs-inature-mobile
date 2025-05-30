@@ -32,7 +32,7 @@ function InitialLayout() {
 	if (isLoading) {
 		return (
 			<View className="flex-1 justify-center items-center bg-white">
-				<ActivityIndicator size="large" color="#3B82F6" />
+				<ActivityIndicator size="large" color="#22c55e" />
 			</View>
 		);
 	}
