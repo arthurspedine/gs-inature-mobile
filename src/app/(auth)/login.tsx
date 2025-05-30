@@ -30,7 +30,7 @@ export default function LoginPage() {
 		setIsLoading(false);
 
 		if (success) {
-			router.replace("/(tabs)/home");
+			router.replace("/(drawer)/home");
 		} else {
 			Alert.alert("Erro", "Email ou senha inválidos");
 		}

@@ -1,7 +1,7 @@
 import { View, Text, Alert } from "react-native";
 import { router } from "expo-router";
-import CustomButton from "../../components/CustomButton";
-import { useAuth } from "../../context/AuthContext";
+import CustomButton from "../../../components/CustomButton";
+import { useAuth } from "../../../context/AuthContext";
 
 export default function HomePage() {
 	const { logout } = useAuth();
@@ -28,14 +28,6 @@ export default function HomePage() {
 			<Text className="text-2xl font-bold text-gray-800 mb-4">
 				Bem-vindo ao <Text className="font-bold text-green-600">iNature</Text>!
 			</Text>
-
-			<View className="mt-4">
-				<CustomButton
-					title="Sair"
-					onPress={handleLogout}
-					style="bg-red-500 hover:bg-red-600"
-				/>
-			</View>
 		</View>
 	);
 }

@@ -24,7 +24,7 @@ function InitialLayout() {
 				router.replace("/(auth)/login");
 			} else if (token && inAuthGroup) {
 				// Redirect to home if authenticated
-				router.replace("/(tabs)/home");
+				router.replace("/(drawer)/home");
 			}
 		}
 	}, [token, isLoading, segments]);
@@ -41,7 +41,7 @@ function InitialLayout() {
 		<Stack screenOptions={{ headerShown: false }}>
 			<Stack.Screen name="index" options={{ headerShown: false }} />
 			<Stack.Screen name="(auth)" options={{ headerShown: false }} />
-			<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+			<Stack.Screen name="(drawer)" options={{ headerShown: false }} />
 		</Stack>
 	);
 }
