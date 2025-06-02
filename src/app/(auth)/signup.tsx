@@ -10,6 +10,7 @@ import {
 import { router } from "expo-router";
 import { useAuth } from "../../context/AuthContext";
 import CustomButton from "../../components/CustomButton";
+import Toast from "react-native-toast-message";
 
 export default function SignupPage() {
 	const [name, setName] = useState("");
@@ -42,7 +43,11 @@ export default function SignupPage() {
 		if (success) {
 			router.replace("/(auth)/login");
 		} else {
-			Alert.alert("Erro", "Falha ao criar conta. Tente novamente.");
+			Toast.show({
+				type: "error",
+				text1: "Falha ao criar conta.",
+				text2: "Se o problema persistir, entre em contato com o suporte.",
+			});
 		}
 	};
 
@@ -55,6 +60,7 @@ export default function SignupPage() {
 
 	return (
 		<View className="flex-1 justify-center px-6">
+			<Toast topOffset={56} />
 			<View className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md gap-2">
 				<Text className="text-3xl font-extrabold text-center text-green-600 mb-2">
 					Cadastrar

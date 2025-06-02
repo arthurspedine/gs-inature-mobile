@@ -2,6 +2,7 @@ import type React from "react";
 import { createContext, useContext, useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { jwtDecode } from "jwt-decode";
+import axios from "axios";
 
 interface JwtPayload {
 	sub: string;
@@ -19,6 +20,8 @@ interface AuthContextType {
 	logout: () => Promise<void>;
 	isLoading: boolean;
 }
+
+const API_URL = "http://192.168.0.113:8080";
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -62,14 +65,17 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
 	const login = async (email: string, password: string): Promise<boolean> => {
 		try {
-			// Simulate API call
-			const response: { success: boolean; token?: string } =
-				await simulateLogin(email, password);
+			const response = await axios.post(`${API_URL}/login`, {
+				username: email,
+				password,
+			});
 
-			if (response.success && response.token) {
-				await AsyncStorage.setItem("jwt_token", response.token);
-				setToken(response.token);
-				const decodedToken = jwtDecode<JwtPayload>(response.token);
+			const receivedToken = response.data.token;
+
+			if (receivedToken && isValidJwt(receivedToken)) {
+				await AsyncStorage.setItem("jwt_token", receivedToken);
+				setToken(receivedToken);
+				const decodedToken = jwtDecode<JwtPayload>(receivedToken);
 				setRole(decodedToken.role);
 				return true;
 			}
@@ -86,11 +92,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 		password: string,
 	): Promise<boolean> => {
 		try {
-			console.log("Signing up with:", { name, email, password });
-
-			// Simulate API call
-			await new Promise((resolve) => setTimeout(resolve, 1000));
-
+			const body = { nome: name, email, senha: password };
+			await axios.post(`${API_URL}/users`, body);
 			return true;
 		} catch (error) {
 			console.error("Signup error:", error);
@@ -128,22 +131,3 @@ function isValidJwt(token: string): boolean {
 		return false;
 	}
 }
-
-// Simulate API calls - replace with your actual API endpoints
-const simulateLogin = async (
-	email: string,
-	password: string,
-): Promise<{ success: boolean; token?: string }> => {
-	await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate network delay
-
-	// Simple validation for demo
-	if (email === "user@example.com" && password === "password") {
-		return {
-			success: true,
-			token:
-				// test JWT token for demo
-				"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3Iiwibm9tZSI6IlRlc3RlIiwiZW1haWwiOiJ0ZXN0ZUBnbWFpbC5jb20iLCJyb2xlIjoiVVNVQVJJTyIsImV4cCI6MTc0OTMyMTExOX0.zk5geEu5wg1eCn6N5m3nH8NtphlJTca-43iNZnBHyAs",
-		};
-	}
-	return { success: false };
-};

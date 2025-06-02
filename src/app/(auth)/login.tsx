@@ -9,9 +9,10 @@ import {
 	TouchableWithoutFeedback,
 	Keyboard,
 } from "react-native";
-import { Link, router } from "expo-router";
+import { router } from "expo-router";
 import { useAuth } from "../../context/AuthContext";
 import CustomButton from "../../components/CustomButton";
+import Toast from "react-native-toast-message";
 
 export default function LoginPage() {
 	const [email, setEmail] = useState("");
@@ -32,7 +33,11 @@ export default function LoginPage() {
 		if (success) {
 			router.replace("/(drawer)/home");
 		} else {
-			Alert.alert("Erro", "Email ou senha inválidos");
+			Toast.show({
+				type: "error",
+				text1: "Falha no login",
+				text2: "Verifique suas credenciais e tente novamente.",
+			});
 		}
 	};
 
@@ -46,6 +51,7 @@ export default function LoginPage() {
 		// Dismiss keyboard when tapping outside of TextInput
 		<TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
 			<View className="flex-1 justify-center px-6">
+				<Toast topOffset={56} />
 				<View className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md gap-2">
 					<Text className="text-3xl font-extrabold text-center text-green-500">
 						Entrar
