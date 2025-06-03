@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import {
 	View,
 	Text,
@@ -9,16 +9,29 @@ import {
 	TouchableWithoutFeedback,
 	Keyboard,
 } from "react-native";
-import { router } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import { useAuth } from "../../context/AuthContext";
 import CustomButton from "../../components/CustomButton";
 import Toast from "react-native-toast-message";
 
 export default function LoginPage() {
+	const params = useLocalSearchParams();
+    const signUpCompleted = params?.signUpCompleted === "true";
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [isLoading, setIsLoading] = useState(false);
 	const { login } = useAuth();
+
+	 useEffect(() => {
+        if (signUpCompleted) {
+            Toast.show({
+                type: "success",
+                text1: "Cadastro realizado com sucesso!",
+                text2: "Agora você pode fazer login.",
+                position: "top",
+            });
+        }
+    }, [signUpCompleted]);
 
 	const handleLogin = async () => {
 		if (!email || !password) {
@@ -113,14 +126,6 @@ export default function LoginPage() {
 						<Pressable onPress={handleGoToSignUp} disabled={isLoading}>
 							<Text className="text-green-600 font-bold">Cadastre-se</Text>
 						</Pressable>
-					</View>
-
-					<View className="mt-6 p-3 bg-green-50 rounded-lg">
-						<Text className="text-xs text-green-700 text-center">
-							Para testar: use{" "}
-							<Text className="font-bold">user@example.com</Text> e senha{" "}
-							<Text className="font-bold">password</Text>
-						</Text>
 					</View>
 				</View>
 			</View>

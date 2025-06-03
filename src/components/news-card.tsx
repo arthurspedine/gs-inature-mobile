@@ -1,6 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Image, Pressable, Text, View } from "react-native";
 import { NewsType } from "../types";
+import { router } from "expo-router";
 
 export function NewsCard({
   id,
@@ -21,12 +22,10 @@ export function NewsCard({
       <View className="flex-row items-center justify-between px-8">
         <Text className="text-gray-500 text-sm">{dataPublicacao}</Text>
         <View className="flex-row items-center gap-4">
-          <Pressable onPress={() => console.log(`Ler notícia ${id}`)}>
+          <Pressable onPress={() => router.push(`/news/${id}`)} className="flex-row items-center gap-2">
+            <Ionicons name="eye-outline" size={24} color="#4A5568" />
             <Text>Ler notícia</Text>
           </Pressable>
-        <Pressable onPress={() => console.log(`Curtiu notícia ${id}`)}>
-          <Ionicons name="heart" size={18} />
-        </Pressable>
         </View>
       </View>
     </View>

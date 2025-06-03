@@ -21,7 +21,7 @@ interface AuthContextType {
 	isLoading: boolean;
 }
 
-const API_URL = "http://192.168.0.113:8080";
+const API_URL = "http://10.3.33.19:8080";
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 

@@ -16,21 +16,18 @@ export default function NewsTabsLayout() {
 				),
 			}}
 		/>,
+		<Tabs.Screen
+			key="[id]"
+			name="[id]"
+			options={{
+				href: null, 
+			}}
+		/>,
 	];
 
 	if (role === "JORNALISTA") {
 		// If JORNALISTA, add "Minhas Notícias" and "Criar Notícia" tabs
 		screens.push(
-			<Tabs.Screen
-				key="my-news"
-				name="my-news"
-				options={{
-					title: "Minhas Notícias",
-					tabBarIcon: ({ color, size }) => (
-						<Ionicons name="document-text-outline" color={color} size={size} />
-					),
-				}}
-			/>,
 			<Tabs.Screen
 				key="create"
 				name="create"
@@ -45,13 +42,6 @@ export default function NewsTabsLayout() {
 	} else {
 		// If not JORNALISTA, hide "Minhas Notícias" and "Criar Notícia"
 		screens.push(
-			<Tabs.Screen
-				key="my-news"
-				name="my-news"
-				options={{
-					href: null,
-				}}
-			/>,
 			<Tabs.Screen
 				key="create"
 				name="create"

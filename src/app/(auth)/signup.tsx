@@ -41,7 +41,7 @@ export default function SignupPage() {
 		setIsLoading(false);
 
 		if (success) {
-			router.replace("/(auth)/login");
+			router.replace("/(auth)/login?signUpCompleted=true");
 		} else {
 			Toast.show({
 				type: "error",
