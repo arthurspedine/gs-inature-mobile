@@ -56,7 +56,7 @@ export default function NewsDetailPage() {
           <Image
             source={{ uri: news.imagemCapa }}
             className="w-full h-72 my-2"
-            resizeMode="cover"
+            resizeMode="center"
           />
           <Text className="text-lg px-4">
             {news.corpo}

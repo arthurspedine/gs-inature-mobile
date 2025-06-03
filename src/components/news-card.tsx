@@ -16,7 +16,8 @@ export function NewsCard({
       <Image
         source={{ uri: imagemCapa }}
         className="w-full h-60"
-        resizeMode="cover"
+        resizeMode="center"
+        alt="Imagem da notícia"
       />
       <Text className="font-bold text-lg px-4">{resumo}</Text>
       <View className="flex-row items-center justify-between px-8">

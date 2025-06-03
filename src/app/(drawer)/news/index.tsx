@@ -1,27 +1,32 @@
-import { useEffect, useState } from "react";
-import { View, Text, ScrollView, ActivityIndicator } from "react-native";
+import { useCallback, useState } from "react";
+import { View, Text, ActivityIndicator } from "react-native";
 import { NewsType } from "../../../types";
 import axios from "axios";
 import { NewsCard } from "../../../components/news-card";
 import { FlatList } from "react-native-gesture-handler";
+import { useFocusEffect } from "expo-router";
 
 export default function NewsPage() {
   const [news, setNews] = useState<NewsType[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchNews = async () => {
-      try {
-        const response = await axios.get("http://10.3.33.19:8080/noticias");
-        setNews(response.data.content);
-      } catch (error) {
-        console.error("Erro ao buscar notícias:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchNews();
-  }, []);
+  async function fetchNews() {
+    setLoading(true);
+    try {
+      const response = await axios.get("http://10.3.33.19:8080/noticias");
+      setNews(response.data.content);
+    } catch (error) {
+      console.error("Erro ao buscar notícias:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useFocusEffect(
+    useCallback(() => {
+      fetchNews();
+    }, [])
+  );
 
   return (
     <View className="flex-1 py-4 bg-white">
