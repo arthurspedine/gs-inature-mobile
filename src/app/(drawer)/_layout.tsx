@@ -29,6 +29,15 @@ export default function DrawerLayout() {
 					),
 				}}
 			/>
+			<Drawer.Screen
+				name="reports"
+				options={{
+					title: "Alertas",
+					drawerIcon: ({ color, size }) => (
+						<Ionicons name="alert-circle-outline" color={color} size={size} />
+					),
+				}}
+			/>
 		</Drawer>
 	);
 }

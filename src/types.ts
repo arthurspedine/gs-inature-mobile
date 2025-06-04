@@ -7,3 +7,23 @@ export type NewsType = {
   imagemCapa: string;
   autor: string;
 };
+
+type Localizacao = {
+  cidade: string;
+  bairro: string;
+  logradouro: string;
+  numero: string;
+};
+
+export type ReportType = {
+  id: number;
+  titulo: string;
+  corpo: string;
+  tipo: 'ENCHENTE' | 'DESABAMENTO' | 'QUEIMADA';
+  data: string; 
+  usuarioNome: string;
+  localizacao: Localizacao;
+  podeConfirmar: boolean;
+  quantidadeConfirmacoes: number;
+};
+
