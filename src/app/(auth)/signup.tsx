@@ -1,16 +1,16 @@
+import { router } from "expo-router";
 import React, { useState } from "react";
 import {
-	View,
+	ActivityIndicator,
+	Alert,
+	Pressable,
 	Text,
 	TextInput,
-	Alert,
-	ActivityIndicator,
-	Pressable,
+	View,
 } from "react-native";
-import { router } from "expo-router";
-import { useAuth } from "../../context/AuthContext";
-import CustomButton from "../../components/CustomButton";
 import Toast from "react-native-toast-message";
+import CustomButton from "../../components/CustomButton";
+import { useAuth } from "../../context/AuthContext";
 
 export default function SignupPage() {
 	const [name, setName] = useState("");

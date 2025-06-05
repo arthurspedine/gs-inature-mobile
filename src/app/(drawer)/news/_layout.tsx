@@ -1,5 +1,5 @@
-import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
+import { Tabs } from "expo-router";
 import { useAuth } from "../../../context/AuthContext";
 
 export default function NewsTabsLayout() {
@@ -20,7 +20,7 @@ export default function NewsTabsLayout() {
 			key="[id]"
 			name="[id]"
 			options={{
-				href: null, 
+				href: null,
 			}}
 		/>,
 	];

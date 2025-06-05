@@ -1,4 +1,4 @@
-import { View, Text, Image, ScrollView } from "react-native";
+import { Image, ScrollView, Text, View } from "react-native";
 
 const developers = [
 	{

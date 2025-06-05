@@ -1,8 +1,8 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 import type React from "react";
 import { createContext, useContext, useEffect, useState } from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { jwtDecode } from "jwt-decode";
-import axios from "axios";
 
 interface JwtPayload {
 	sub: string;
@@ -21,7 +21,7 @@ interface AuthContextType {
 	isLoading: boolean;
 }
 
-const API_URL = "http://10.3.33.19:8080";
+const API_URL = "http://192.168.0.113:8080";
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 

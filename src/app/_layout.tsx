@@ -1,14 +1,14 @@
-import { Stack } from "expo-router";
-import { useFonts } from "expo-font";
 import {
 	Inter_400Regular,
 	Inter_500Medium,
 	Inter_700Bold,
 } from "@expo-google-fonts/inter";
-import { AuthProvider, useAuth } from "../context/AuthContext";
-import { useEffect } from "react";
+import { useFonts } from "expo-font";
+import { Stack } from "expo-router";
 import { router, useSegments } from "expo-router";
+import { useEffect } from "react";
 import { ActivityIndicator, View } from "react-native";
+import { AuthProvider, useAuth } from "../context/AuthContext";
 import "../styles/globals.css";
 
 function InitialLayout() {

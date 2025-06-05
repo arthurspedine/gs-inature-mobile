@@ -1,9 +1,9 @@
 import { Ionicons } from "@expo/vector-icons";
+import type { DrawerNavigationProp } from "@react-navigation/drawer";
+import { useNavigation } from "@react-navigation/native";
+import { useRouter } from "expo-router";
 import { Alert, Text, TouchableOpacity, View } from "react-native";
 import { useAuth } from "../context/AuthContext";
-import { useRouter } from "expo-router";
-import { useNavigation } from "@react-navigation/native";
-import type { DrawerNavigationProp } from "@react-navigation/drawer";
 
 type RootDrawerParamList = {
 	Home: undefined;

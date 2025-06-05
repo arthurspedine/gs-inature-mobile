@@ -1,18 +1,18 @@
+import axios from "axios";
+import * as ImagePicker from "expo-image-picker";
+import { router } from "expo-router";
 import { useState } from "react";
 import {
-	View,
+	ActivityIndicator,
+	Alert,
+	Image,
+	ScrollView,
 	Text,
 	TextInput,
 	TouchableOpacity,
-	Image,
-	ActivityIndicator,
-	Alert,
-	ScrollView,
+	View,
 } from "react-native";
-import * as ImagePicker from "expo-image-picker";
-import { router } from "expo-router";
 import { useAuth } from "../../../context/AuthContext";
-import axios from "axios";
 
 export default function CreatePage() {
 	const { token } = useAuth();
@@ -47,20 +47,22 @@ export default function CreatePage() {
 			uri: imagem.uri,
 			name: imagem.fileName || "imagem.jpg",
 			type: imagem.mimeType || "image/jpeg",
+			// biome-ignore lint/suspicious/noExplicitAny:
 		} as any);
 
-		try {		
+		try {
 			const res = await axios.post(
-				"http://10.3.33.19:8080/noticias",
+				"http://192.168.0.113:8080/noticias",
 				formData,
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
 						"Content-Type": "multipart/form-data",
 					},
-				}
+				},
 			);
-			if (res.status < 200 || res.status >= 300) throw new Error("Erro ao criar notícia");
+			if (res.status < 200 || res.status >= 300)
+				throw new Error("Erro ao criar notícia");
 			Alert.alert("Sucesso", "Notícia criada com sucesso!");
 			setTitulo("");
 			setResumo("");
@@ -94,7 +96,7 @@ export default function CreatePage() {
 				onChangeText={setResumo}
 				placeholder="Digite o resumo"
 			/>
-		
+
 			<Text className="mb-1 font-semibold">Corpo</Text>
 			<TextInput
 				className="border border-gray-300 rounded px-3 py-2 mb-2"
@@ -105,7 +107,7 @@ export default function CreatePage() {
 				numberOfLines={5}
 				style={{ textAlignVertical: "top" }}
 			/>
-		
+
 			<Text className="mb-1 font-semibold">Imagem</Text>
 			<TouchableOpacity
 				onPress={pickImage}
@@ -122,7 +124,7 @@ export default function CreatePage() {
 					resizeMode="center"
 				/>
 			)}
-			
+
 			<TouchableOpacity
 				onPress={handleSubmit}
 				disabled={isLoading}
