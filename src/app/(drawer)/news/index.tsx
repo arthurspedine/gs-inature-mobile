@@ -1,4 +1,4 @@
-import { request } from "@/helprer/request"
+import { request } from "@/helper/request"
 import type { NewsType } from "@/types"
 import { NewsCard } from "@components/news-card"
 import { useFocusEffect } from "expo-router"

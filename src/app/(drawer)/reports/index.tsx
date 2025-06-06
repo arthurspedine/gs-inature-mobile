@@ -1,5 +1,5 @@
 import { useAuth } from "@/context/AuthContext"
-import { request } from "@/helprer/request"
+import { request } from "@/helper/request"
 import type { ReportType } from "@/types"
 import { ReportCard } from "@components/report-card"
 import { useFocusEffect } from "expo-router"

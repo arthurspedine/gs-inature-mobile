@@ -1,3 +1,4 @@
+import { request } from "@/helper/request"
 import type { NewsType } from "@/types"
 import { router, useLocalSearchParams } from "expo-router"
 import { useEffect, useState } from "react"
@@ -20,10 +21,10 @@ export default function NewsDetailPage() {
       if (!id) return
       setLoading(true)
       try {
-        const res = await fetch(`http://192.168.0.113:8080/noticias/${id}`)
-        if (!res.ok) throw new Error("Erro ao buscar notícia")
-        const data: NewsType = await res.json()
-        setNews(data)
+        const res: NewsType | null = await request(`/noticias/${id}`)
+        if (res) {
+          setNews(res)
+        }
       } catch {
         setNews(null)
       } finally {
@@ -67,7 +68,7 @@ export default function NewsDetailPage() {
             className="my-2 h-72 w-full"
             resizeMode="center"
           />
-          <Text className="px-4 text-lg">{news.corpo}</Text>
+          <Text className="mb-12 px-4 text-lg">{news.corpo}</Text>
         </>
       )}
     </ScrollView>

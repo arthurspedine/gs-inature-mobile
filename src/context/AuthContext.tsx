@@ -1,4 +1,4 @@
-import { request } from "@/helprer/request"
+import { request } from "@/helper/request"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import { jwtDecode } from "jwt-decode"
 import type React from "react"

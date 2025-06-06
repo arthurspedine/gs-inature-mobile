@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { ActivityIndicator, Alert, Pressable, Text, View } from "react-native"
 import { TextInput } from "react-native-gesture-handler"
 import { useAuth } from "../../context/AuthContext"
-import { request } from "../../helprer/request"
+import { request } from "../../helper/request"
 
 export default function AccountPage() {
   const { token, logout } = useAuth()

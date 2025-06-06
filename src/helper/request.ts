@@ -1,6 +1,6 @@
 import axios, { type AxiosRequestConfig, type Method } from "axios"
 
-const API_URL = "http://192.168.0.113:8080"
+const API_URL = "http://172.171.212.177:8080"
 
 export interface RequestOptions extends AxiosRequestConfig {
   authToken?: string

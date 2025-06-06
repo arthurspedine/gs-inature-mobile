@@ -1,10 +1,4 @@
 import { AuthProvider, useAuth } from "@/context/AuthContext"
-import {
-  Inter_400Regular,
-  Inter_500Medium,
-  Inter_700Bold,
-} from "@expo-google-fonts/inter"
-import { useFonts } from "expo-font"
 import { Stack } from "expo-router"
 import { router, useSegments } from "expo-router"
 import { useEffect } from "react"
@@ -47,16 +41,6 @@ function InitialLayout() {
 }
 
 export default function RootLayout() {
-  const [fontsLoaded] = useFonts({
-    Inter_400Regular,
-    Inter_500Medium,
-    Inter_700Bold,
-  })
-
-  if (!fontsLoaded) {
-    return null
-  }
-
   return (
     <AuthProvider>
       <InitialLayout />

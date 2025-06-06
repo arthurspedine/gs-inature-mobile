@@ -1,5 +1,5 @@
 import { useAuth } from "@/context/AuthContext"
-import { request } from "@/helprer/request"
+import { request } from "@/helper/request"
 import { router } from "expo-router"
 import { useState } from "react"
 import {
