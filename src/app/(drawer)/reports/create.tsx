@@ -1,3 +1,5 @@
+import { useAuth } from "@/context/AuthContext"
+import { request } from "@/helprer/request"
 import { router } from "expo-router"
 import { useState } from "react"
 import {
@@ -9,8 +11,6 @@ import {
   TextInput,
   View,
 } from "react-native"
-import { useAuth } from "@/context/AuthContext"
-import { request } from "@/helprer/request"
 
 const tipos = [
   { label: "Enchente", value: "ENCHENTE" },
@@ -73,7 +73,7 @@ export default function MePage() {
 
   return (
     <ScrollView className="flex-1 bg-white px-6 py-4">
-      <Text className="mb-2 text-center font-bold text-3xl text-green-700">
+      <Text className="mb-2 text-center font-bold text-2xl text-green-700">
         Novo Alerta
       </Text>
 

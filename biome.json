@@ -7,10 +7,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": [
-      "node_modules",
-      ".expo"
-    ]
+    "ignore": ["node_modules", ".expo"]
   },
   "formatter": {
     "enabled": true,
@@ -38,11 +35,7 @@
           "level": "warn",
           "fix": "safe",
           "options": {
-            "functions": [
-              "clsx",
-              "cva",
-              "cn"
-            ]
+            "functions": ["clsx", "cva", "cn"]
           }
         }
       },

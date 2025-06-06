@@ -1,6 +1,6 @@
+import { Header } from "@components/Header"
 import { Ionicons } from "@expo/vector-icons"
 import { Drawer } from "expo-router/drawer"
-import { Header } from "@components/Header"
 
 export default function DrawerLayout() {
   return (
@@ -36,6 +36,18 @@ export default function DrawerLayout() {
           drawerIcon: ({ color, size }) => (
             <Ionicons name="alert-circle-outline" color={color} size={size} />
           ),
+        }}
+      />
+      <Drawer.Screen
+        name="account"
+        options={{
+          drawerItemStyle: { display: "none" },
+        }}
+      />
+      <Drawer.Screen
+        name="logout"
+        options={{
+          drawerItemStyle: { display: "none" },
         }}
       />
     </Drawer>

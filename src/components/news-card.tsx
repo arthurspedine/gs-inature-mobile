@@ -1,7 +1,7 @@
+import type { NewsType } from "@/types"
 import { Ionicons } from "@expo/vector-icons"
 import { router } from "expo-router"
 import { Image, Pressable, Text, View } from "react-native"
-import type { NewsType } from "@/types"
 
 export function NewsCard({
   id,

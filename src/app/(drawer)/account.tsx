@@ -1,15 +1,9 @@
+import { router } from "expo-router"
 import { useEffect, useState } from "react"
-import {
-  Alert,
-  Text,
-  TextInput,
-  View,
-  Pressable,
-  ActivityIndicator,
-} from "react-native"
+import { ActivityIndicator, Alert, Pressable, Text, View } from "react-native"
+import { TextInput } from "react-native-gesture-handler"
 import { useAuth } from "../../context/AuthContext"
 import { request } from "../../helprer/request"
-import { router } from "expo-router"
 
 export default function AccountPage() {
   const { token, logout } = useAuth()
@@ -110,7 +104,7 @@ export default function AccountPage() {
 
   return (
     <View className="flex-1 items-center bg-white py-4">
-      <Text className="mb-2 text-center font-extrabold text-3xl text-green-700">
+      <Text className="mb-2 text-center font-extrabold text-2xl text-green-700">
         Conta
       </Text>
       <View className="h-0.5 w-full bg-gray-400" />

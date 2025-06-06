@@ -1,3 +1,5 @@
+import { useAuth } from "@/context/AuthContext"
+import CustomButton from "@components/CustomButton"
 import { router } from "expo-router"
 import { useState } from "react"
 import {
@@ -9,8 +11,6 @@ import {
   View,
 } from "react-native"
 import Toast from "react-native-toast-message"
-import CustomButton from "@components/CustomButton"
-import { useAuth } from "@/context/AuthContext"
 
 export default function SignupPage() {
   const [name, setName] = useState("")
@@ -62,7 +62,7 @@ export default function SignupPage() {
     <View className="flex-1 justify-center px-6">
       <Toast topOffset={56} />
       <View className="w-full max-w-md gap-2 rounded-2xl bg-white p-8 shadow-lg">
-        <Text className="mb-2 text-center font-extrabold text-3xl text-green-600">
+        <Text className="mb-2 text-center font-extrabold text-2xl text-green-600">
           Cadastrar
         </Text>
         <Text className="mb-4 text-center font-medium text-base">

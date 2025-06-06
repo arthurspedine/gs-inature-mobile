@@ -1,10 +1,10 @@
+import { request } from "@/helprer/request"
+import type { NewsType } from "@/types"
+import { NewsCard } from "@components/news-card"
 import { useFocusEffect } from "expo-router"
 import { useCallback, useState } from "react"
 import { ActivityIndicator, Text, View } from "react-native"
 import { FlatList } from "react-native-gesture-handler"
-import { NewsCard } from "@components/news-card"
-import { request } from "@/helprer/request"
-import type { NewsType } from "@/types"
 
 export default function NewsPage() {
   const [news, setNews] = useState<NewsType[]>([])
@@ -34,7 +34,7 @@ export default function NewsPage() {
 
   return (
     <View className="flex-1 bg-white py-4">
-      <Text className="mb-2 text-center font-extrabold text-3xl text-green-700">
+      <Text className="mb-2 text-center font-extrabold text-2xl text-green-700">
         Notícias
       </Text>
       <View className="h-0.5 w-full bg-gray-400" />

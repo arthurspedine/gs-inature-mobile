@@ -1,3 +1,5 @@
+import { useAuth } from "@/context/AuthContext"
+import { request } from "@/helprer/request"
 import * as ImagePicker from "expo-image-picker"
 import { router } from "expo-router"
 import { useState } from "react"
@@ -10,8 +12,6 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native"
-import { useAuth } from "@/context/AuthContext"
-import { request } from "@/helprer/request"
 
 export default function CreatePage() {
   const { token } = useAuth()
@@ -75,7 +75,7 @@ export default function CreatePage() {
 
   return (
     <ScrollView className="flex-1 bg-white p-4">
-      <Text className="mb-4 text-center font-bold text-3xl text-green-700">
+      <Text className="mb-4 text-center font-bold text-2xl text-green-700">
         Criar Notícia
       </Text>
       <Text className="mb-1 font-semibold">Título</Text>

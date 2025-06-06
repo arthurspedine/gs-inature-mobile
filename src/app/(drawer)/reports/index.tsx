@@ -1,11 +1,11 @@
+import { useAuth } from "@/context/AuthContext"
+import { request } from "@/helprer/request"
+import type { ReportType } from "@/types"
+import { ReportCard } from "@components/report-card"
 import { useFocusEffect } from "expo-router"
 import { useCallback, useState } from "react"
 import { ActivityIndicator, Text, View } from "react-native"
 import { FlatList } from "react-native-gesture-handler"
-import { ReportCard } from "@components/report-card"
-import { useAuth } from "@/context/AuthContext"
-import { request } from "@/helprer/request"
-import type { ReportType } from "@/types"
 
 export default function ReportsPage() {
   const { token } = useAuth()
@@ -43,7 +43,7 @@ export default function ReportsPage() {
 
   return (
     <View className="flex-1 bg-white py-4">
-      <Text className="mb-2 text-center font-extrabold text-3xl text-green-700">
+      <Text className="mb-2 text-center font-extrabold text-2xl text-green-700">
         Alertas
       </Text>
       <View className="h-0.5 w-full bg-gray-400" />

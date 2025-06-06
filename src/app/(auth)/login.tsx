@@ -1,3 +1,5 @@
+import { useAuth } from "@/context/AuthContext"
+import CustomButton from "@components/CustomButton"
 import { router, useLocalSearchParams } from "expo-router"
 import { useEffect, useState } from "react"
 import {
@@ -11,8 +13,6 @@ import {
   View,
 } from "react-native"
 import Toast from "react-native-toast-message"
-import CustomButton from "@components/CustomButton"
-import { useAuth } from "@/context/AuthContext"
 
 export default function LoginPage() {
   const params = useLocalSearchParams()
@@ -66,7 +66,7 @@ export default function LoginPage() {
       <View className="flex-1 justify-center px-6">
         <Toast topOffset={56} />
         <View className="w-full max-w-md gap-2 rounded-2xl bg-white p-8 shadow-lg">
-          <Text className="text-center font-extrabold text-3xl text-green-500">
+          <Text className="text-center font-extrabold text-2xl text-green-500">
             Entrar
           </Text>
           <Text className="mb-4 text-center font-medium text-base">

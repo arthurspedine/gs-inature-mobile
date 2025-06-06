@@ -1,7 +1,9 @@
+import { useAuth } from "@/context/AuthContext"
 import { Ionicons } from "@expo/vector-icons"
 import type { DrawerNavigationProp } from "@react-navigation/drawer"
 import { useNavigation } from "@react-navigation/native"
 import { useRouter } from "expo-router"
+import { useState } from "react"
 import {
   Alert,
   Modal,
@@ -10,8 +12,6 @@ import {
   TouchableOpacity,
   View,
 } from "react-native"
-import { useAuth } from "@/context/AuthContext"
-import { useState } from "react"
 
 type RootDrawerParamList = {
   Home: undefined

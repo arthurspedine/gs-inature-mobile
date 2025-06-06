@@ -1,3 +1,4 @@
+import type { NewsType } from "@/types"
 import { router, useLocalSearchParams } from "expo-router"
 import { useEffect, useState } from "react"
 import {
@@ -8,7 +9,6 @@ import {
   TouchableOpacity,
   View,
 } from "react-native"
-import type { NewsType } from "@/types"
 
 export default function NewsDetailPage() {
   const { id } = useLocalSearchParams()
@@ -53,7 +53,7 @@ export default function NewsDetailPage() {
       )}
       {news && (
         <>
-          <Text className="mb-2 text-center font-extrabold text-3xl text-green-700">
+          <Text className="mb-2 text-center font-extrabold text-2xl text-green-700">
             {news.titulo}
           </Text>
           <View className="flex-row items-center justify-between px-4">

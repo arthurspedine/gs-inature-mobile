@@ -21,7 +21,7 @@ const developers = [
 export default function DevsPage() {
   return (
     <ScrollView contentContainerClassName="flex-1 items-center p-4">
-      <Text className="mb-4 text-center font-extrabold text-3xl text-green-700">
+      <Text className="mb-4 text-center font-extrabold text-2xl text-green-700">
         Desenvolvedores
       </Text>
 
