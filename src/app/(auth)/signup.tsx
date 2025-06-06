@@ -9,8 +9,8 @@ import {
   View,
 } from "react-native"
 import Toast from "react-native-toast-message"
-import CustomButton from "../../components/CustomButton"
-import { useAuth } from "../../context/AuthContext"
+import CustomButton from "@components/CustomButton"
+import { useAuth } from "@/context/AuthContext"
 
 export default function SignupPage() {
   const [name, setName] = useState("")

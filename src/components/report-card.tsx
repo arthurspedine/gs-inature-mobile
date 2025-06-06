@@ -1,7 +1,7 @@
 import { Text, TouchableOpacity, View } from "react-native"
-import { useAuth } from "../context/AuthContext"
-import { request } from "../helprer/request"
-import type { ReportType } from "../types"
+import { useAuth } from "@/context/AuthContext"
+import { request } from "@/helprer/request"
+import type { ReportType } from "@/types"
 
 const typeColors: Record<ReportType["tipo"], string> = {
   ENCHENTE: "text-blue-700 bg-blue-100",

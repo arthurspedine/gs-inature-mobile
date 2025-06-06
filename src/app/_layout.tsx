@@ -8,8 +8,8 @@ import { Stack } from "expo-router"
 import { router, useSegments } from "expo-router"
 import { useEffect } from "react"
 import { ActivityIndicator, View } from "react-native"
-import { AuthProvider, useAuth } from "../context/AuthContext"
-import "../styles/globals.css"
+import { AuthProvider, useAuth } from "@/context/AuthContext"
+import "@/styles/globals.css"
 
 function InitialLayout() {
   const { token, isLoading } = useAuth()

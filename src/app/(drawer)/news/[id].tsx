@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native"
-import type { NewsType } from "../../../types"
+import type { NewsType } from "@/types"
 
 export default function NewsDetailPage() {
   const { id } = useLocalSearchParams()

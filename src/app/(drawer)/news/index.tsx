@@ -2,9 +2,9 @@ import { useFocusEffect } from "expo-router"
 import { useCallback, useState } from "react"
 import { ActivityIndicator, Text, View } from "react-native"
 import { FlatList } from "react-native-gesture-handler"
-import { NewsCard } from "../../../components/news-card"
-import { request } from "../../../helprer/request"
-import type { NewsType } from "../../../types"
+import { NewsCard } from "@components/news-card"
+import { request } from "@/helprer/request"
+import type { NewsType } from "@/types"
 
 export default function NewsPage() {
   const [news, setNews] = useState<NewsType[]>([])

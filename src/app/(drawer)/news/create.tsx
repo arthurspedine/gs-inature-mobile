@@ -10,8 +10,8 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native"
-import { useAuth } from "../../../context/AuthContext"
-import { request } from "../../../helprer/request"
+import { useAuth } from "@/context/AuthContext"
+import { request } from "@/helprer/request"
 
 export default function CreatePage() {
   const { token } = useAuth()

@@ -1,6 +1,6 @@
 import { Ionicons } from "@expo/vector-icons"
 import { Drawer } from "expo-router/drawer"
-import { Header } from "../../components/Header"
+import { Header } from "@components/Header"
 
 export default function DrawerLayout() {
   return (

@@ -9,8 +9,8 @@ import {
   TextInput,
   View,
 } from "react-native"
-import { useAuth } from "../../../context/AuthContext"
-import { request } from "../../../helprer/request"
+import { useAuth } from "@/context/AuthContext"
+import { request } from "@/helprer/request"
 
 const tipos = [
   { label: "Enchente", value: "ENCHENTE" },

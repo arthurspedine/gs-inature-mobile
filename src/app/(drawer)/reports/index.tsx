@@ -2,10 +2,10 @@ import { useFocusEffect } from "expo-router"
 import { useCallback, useState } from "react"
 import { ActivityIndicator, Text, View } from "react-native"
 import { FlatList } from "react-native-gesture-handler"
-import { ReportCard } from "../../../components/report-card"
-import { useAuth } from "../../../context/AuthContext"
-import { request } from "../../../helprer/request"
-import type { ReportType } from "../../../types"
+import { ReportCard } from "@components/report-card"
+import { useAuth } from "@/context/AuthContext"
+import { request } from "@/helprer/request"
+import type { ReportType } from "@/types"
 
 export default function ReportsPage() {
   const { token } = useAuth()
