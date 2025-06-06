@@ -14,7 +14,7 @@ export default function NewsPage() {
     setLoading(true)
     try {
       const response = await request<{ content: NewsType[] } | null>(
-        "/noticias"
+        "/noticias?sort=dataPublicacao,desc"
       )
       if (response) {
         setNews(response.content)
